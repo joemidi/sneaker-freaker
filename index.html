@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Customize Yo Sneaker!</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="css/style.css" type="text/css" />
+		<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>-->
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+        <script type="text/javascript" src="js/base64.js"></script>
+        <script type="text/javascript" src="js/canvas2image.js"></script>
+        <script>
+            $(function() {
+                $( "#color-options" ).accordion();
+            });
+        </script>
+    </head>
+    <body>
+        <div class="wrapper">
+
+            <header id="branding" role="banner">
+                <div class="header-wrap">
+                    <hgroup>
+                        <h1 id="site-title">
+                            YO? SNEAKER!
+                        </h1>
+                    </hgroup>
+
+                    <nav id="access" role="navigation">
+
+                        <ul>
+                            <li>Home</li>
+                            <li>Collections</li>
+                            <li>Customise</li>
+                            <li>Accessories</li>
+                            <li>Popup Shops</li>
+                            <li>Contact</li>
+                        </ul>
+
+                    </nav>
+                </div>
+            </header>
+
+            <section id="content" role="main">
+                <h2>Customize Yo Sneaker!</h2>
+                <canvas id="sCanvas" height="660" width="700"></canvas>
+                <img id="canvasImg" alt="Right click to save me!">
+                <div id="color-options">
+
+                    <h3>Component 1</h3>
+                    <div>
+                        <p>
+                            <button id="comp1-blue" onclick="draw_component1Blue();return true;"></button>
+                            <button id="comp1-orange" onclick="draw_component1Orange();return true;"></button>
+                            <button id="comp1-red" onclick="draw_component1Red();return true;"></button>
+                            <button id="comp1-purple" onclick="draw_component1Purple();return true;"></button>
+                            <button id="comp1-yellow" onclick="draw_component1Yellow();return true;"></button>
+                            <button id="comp1-green" onclick="draw_component1Green();return true;"></button> 
+                        </p>
+                    </div>
+
+                    <h3>Component 2</h3>
+                    <div>
+                        <button id="comp2-blue" onclick="draw_component2Blue();return true;"></button>
+                        <button id="comp2-orange" onclick="draw_component2Orange();return true;"></button>
+                        <button id="comp2-red" onclick="draw_component2Red();return true;"></button>
+                        <button id="comp2-purple" onclick="draw_component2Purple();return true;"></button>
+                        <button id="comp2-yellow" onclick="draw_component2Yellow();return true;"></button>
+                        <button id="comp2-green" onclick="draw_component2Green();return true;"></button>
+                    </div>
+
+                    <h3>Tongue</h3>
+                    <div>
+                        <button id="tongue-blue" onclick="draw_tongueBlue();return true;"></button>
+                        <button id="tongue-orange" onclick="draw_tongueOrange();return true;"></button>
+                        <button id="tongue-red" onclick="draw_tongueRed();return true;"></button>
+                        <button id="tongue-purple" onclick="draw_tonguePurple();return true;"></button>
+                        <button id="tongue-yellow" onclick="draw_tongueYellow();return true;"></button>
+                        <button id="tongue-green" onclick="draw_tongueGreen();return true;"></button>
+                    </div>
+
+                    <h3>Highlights</h3>
+                    <div>
+                        <button id="highlights-blue" onclick="draw_highlightsBlue();return true;"></button>
+                        <button id="highlights-orange" onclick="draw_highlightsOrange();return true;"></button>
+                        <button id="highlights-red" onclick="draw_highlightsRed();return true;"></button>
+                        <button id="highlights-purple" onclick="draw_highlightsPurple();return true;"></button>
+                        <button id="highlights-yellow" onclick="draw_highlightsYellow();return true;"></button>
+                        <button id="highlights-green" onclick="draw_highlightsGreen();return true;"></button>
+                    </div>
+
+                    <h3>Sole</h3>
+                    <div>
+                        <button id="sole-black" onclick="draw_soleBlack();return true;"></button>
+                        <button id="sole-white" onclick="draw_soleWhite();return true;"></button>
+                        <button id="sole-orange" onclick="draw_soleOrange();return true;"></button>
+                    </div>
+
+                    <h3>Clear</h3>
+                    <div>
+                        <button onclick="clear_image();return true;">Clear</button>
+                    </div>
+                    <h3>Save & Share</h3>
+                    <div>
+                        <button onclick="saveImage()">Save</button>
+                    </div>
+                </div>
+
+
+                <script>
+                    var sneakerCanvas = document.getElementById("sCanvas").getContext("2d");
+
+                    var outline = new Image();
+                    outline.src = 'images/sneaker/outline.png';
+                    outline.onload = function () {
+                        sneakerCanvas.drawImage(outline,0,0);
+                    }
+                    
+                    var component1 = new Image();
+                    var component2 = new Image();
+                    var tongue = new Image();
+                    var highlights = new Image();
+                    var sole = new Image();
+                    
+                    
+                    
+                    
+                    // Component 1 options
+
+                    function draw_component1Blue() {
+                        component1.src = 'images/sneaker/component1-blue.png';
+                        component1.onload = function () {
+                            sneakerCanvas.drawImage(component1, 0, 0);
+                        }
+                    }
+
+                    function draw_component1Orange() {
+                        component1.src = 'images/sneaker/component1-orange.png';
+                        sneakerCanvas.drawImage(component1, 0, 0);
+                    }
+                    
+                    function draw_component1Red() {
+                        component1.src = 'images/sneaker/component1-red.png';
+                        sneakerCanvas.drawImage(component1, 0, 0);
+                    }
+
+                    function draw_component1Purple() {
+                        component1.src = 'images/sneaker/component1-purple.png';
+                        sneakerCanvas.drawImage(component1, 0, 0);
+                    }
+                    
+                    function draw_component1Yellow() {
+                        component1.src = 'images/sneaker/component1-yellow.png';
+                        sneakerCanvas.drawImage(component1, 0, 0);
+                    }
+
+                    function draw_component1Green() {
+                        component1.src = 'images/sneaker/component1-green.png';
+                        sneakerCanvas.drawImage(component1, 0, 0);
+                    }
+                    
+                    // Component 2 options
+                    
+                    function draw_component2Blue() {
+                        component2.src = 'images/sneaker/component2-blue.png';
+                        component2.onload = function () {
+                            sneakerCanvas.drawImage(component2, 0, 0);
+                        }
+                    }
+
+                    function draw_component2Orange() {
+                        component2.src = 'images/sneaker/component2-orange.png';
+                        sneakerCanvas.drawImage(component2, 0, 0);
+                    }
+                    
+                    function draw_component2Red() {
+                        component2.src = 'images/sneaker/component2-red.png';
+                        sneakerCanvas.drawImage(component2, 0, 0);
+                    }
+
+                    function draw_component2Purple() {
+                        component2.src = 'images/sneaker/component2-purple.png';
+                        sneakerCanvas.drawImage(component2, 0, 0);
+                    }
+                    
+                    function draw_component2Yellow() {
+                        component2.src = 'images/sneaker/component2-yellow.png';
+                        sneakerCanvas.drawImage(component2, 0, 0);
+                    }
+
+                    function draw_component2Green() {
+                        component2.src = 'images/sneaker/component2-green.png';
+                        sneakerCanvas.drawImage(component2, 0, 0);
+                    }
+                    
+                    // Tongue options
+                    
+                    function draw_tongueBlue() {
+                        tongue.src = 'images/sneaker/tongue-blue.png';
+                        tongue.onload = function () {
+                            sneakerCanvas.drawImage(tongue, 0, 0);
+                        }
+                    }
+
+                    function draw_tongueOrange() {
+                        tongue.src = 'images/sneaker/tongue-orange.png';
+                        tongue.onload = function () {
+                            sneakerCanvas.drawImage(tongue, 0, 0);
+                        }
+                    }
+                    
+                    function draw_tongueRed() {
+                        tongue.src = 'images/sneaker/tongue-red.png';
+                        tongue.onload = function () {
+                            sneakerCanvas.drawImage(tongue, 0, 0);
+                        }
+                    }
+
+                    function draw_tonguePurple() {
+                        tongue.src = 'images/sneaker/tongue-purple.png';
+                        tongue.onload = function () {
+                            sneakerCanvas.drawImage(tongue, 0, 0);
+                        }
+                    }
+                    
+                    function draw_tongueYellow() {
+                        tongue.src = 'images/sneaker/tongue-yellow.png';
+                        tongue.onload = function () {
+                            sneakerCanvas.drawImage(tongue, 0, 0);
+                        }
+                    }
+
+                    function draw_tongueGreen() {
+                        tongue.src = 'images/sneaker/tongue-green.png';
+                        tongue.onload = function () {
+                            sneakerCanvas.drawImage(tongue, 0, 0);
+                        }
+                    }
+                    
+                    // Highlights options
+                    
+                    function draw_highlightsBlue() {
+                        highlights.src = 'images/sneaker/highlights-blue.png';
+                        highlights.onload = function () {
+                            sneakerCanvas.drawImage(highlights, 0, 0);
+                        }
+                    }
+
+                    function draw_highlightsOrange() {
+                        highlights.src = 'images/sneaker/highlights-orange.png';
+                        highlights.onload = function () {
+                            sneakerCanvas.drawImage(highlights, 0, 0);
+                        }
+                    }
+                    
+                    function draw_highlightsRed() {
+                        highlights.src = 'images/sneaker/highlights-red.png';
+                        highlights.onload = function () {
+                            sneakerCanvas.drawImage(highlights, 0, 0);
+                        }
+                    }
+
+                    function draw_highlightsPurple() {
+                        highlights.src = 'images/sneaker/highlights-purple.png';
+                        highlights.onload = function () {
+                            sneakerCanvas.drawImage(highlights, 0, 0);
+                        }
+                    }
+                    
+                    function draw_highlightsYellow() {
+                        highlights.src = 'images/sneaker/highlights-yellow.png';
+                        highlights.onload = function () {
+                            sneakerCanvas.drawImage(highlights, 0, 0);
+                        }
+                    }
+
+                    function draw_highlightsGreen() {
+                        highlights.src = 'images/sneaker/highlights-green.png';
+                        highlights.onload = function () {
+                            sneakerCanvas.drawImage(highlights, 0, 0);
+                        }
+                    }
+                    
+                    // Sole options
+                    
+                    function draw_soleBlack() {
+                        sole.src = 'images/sneaker/sole-black.png';
+                        sole.onload = function () {
+                            sneakerCanvas.drawImage(sole, 0, 0);
+                        }
+                    }
+
+                    function draw_soleWhite() {
+                        sole.src = 'images/sneaker/sole-white.png';
+                        sole.onload = function () {
+                            sneakerCanvas.drawImage(sole, 0, 0);
+                        }
+                    }
+                    
+                    function draw_soleOrange() {
+                        sole.src = 'images/sneaker/sole-orange.png';
+                        sole.onload = function () {
+                            sneakerCanvas.drawImage(sole, 0, 0);
+                        }
+                    }
+                    
+                    // Clears whole canvas and the re-draws the sneaker outline
+
+                    function clear_image() {
+                        sneakerCanvas.clearRect(0, 0, 700, 660);
+                        sneakerCanvas.drawImage(outline,0,0);
+                    } 
+                    
+                    var oCanvas = document.getElementById("sCanvas"); 
+
+                    function saveImage() {
+                        var strDataURI = oCanvas.toDataURL();
+                        document.getElementById("canvasImg").src = oCanvas.toDataURL();
+                        Canvas2Image.saveAsPNG(oCanvas); 
+                    }
+                    
+                </script>
+            </section>  
+
+            <footer id="colophon" role="contentinfo">
+                <div class="footer-wrap">
+                    <div id="copyright"> All content © 2012 by YCUSTOM.</div>
+                    <div id="footer-links">
+                        <ul>
+                            <li>Terms of Use</li>
+                            <li>Privacy Policy</li>
+                            <li>Facebook</li>
+                            <li>Twitter</li>
+                            <li>Pintrest</li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>
